@@ -184,6 +184,8 @@ const Services = () => {
 
       {/* Core Services */}
       <section className="py-24 bg-white">
+        <div id="pellet" className="absolute -top-24"></div>
+        <div id="dri" className="absolute -top-24"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-red-100 text-red-600 rounded-full text-sm font-semibold mb-4">
@@ -199,7 +201,15 @@ const Services = () => {
 
           <div className="space-y-24">
             {services.map((service, index) => (
-              <div key={index} className="group">
+              <div 
+                key={index} 
+                id={
+                  index === 0 ? 'iron-ore' : 
+                  index === 1 ? 'fleet' : 
+                  index === 2 ? 'maintenance' : 
+                  undefined
+                }
+                className="group scroll-mt-24">
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                   <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
                     <div className="inline-flex items-center justify-center w-20 h-20 bg-red-100 text-red-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform">

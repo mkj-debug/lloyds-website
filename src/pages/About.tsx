@@ -113,7 +113,7 @@ const About = () => {
       </section>
 
       {/* Company Introduction */}
-      <section className="py-24 bg-white">
+      <section id="story" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="animate-slide-up">
@@ -167,7 +167,7 @@ const About = () => {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section id="mission" className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-red-100 text-red-600 rounded-full text-sm font-semibold mb-4">
@@ -263,7 +263,7 @@ const About = () => {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section id="leadership" className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-red-100 text-red-600 rounded-full text-sm font-semibold mb-4">
@@ -300,7 +300,7 @@ const About = () => {
       </section>
 
       {/* Innovation & Sustainability */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 to-red-900 text-white">
+      <section id="awards" className="py-24 bg-gradient-to-br from-gray-900 to-red-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-red-600/20 text-red-400 rounded-full text-sm font-semibold mb-4">

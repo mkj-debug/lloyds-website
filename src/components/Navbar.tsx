@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown, Truck } from 'lucide-react';
 
 const Navbar = () => {
@@ -7,6 +7,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +46,40 @@ const Navbar = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  const handleSubItemClick = (href: string) => {
+    setDropdownOpen(null);
+    setIsOpen(false);
+    
+    // Check if it's a hash link
+    if (href.includes('#')) {
+      const [path, hash] = href.split('#');
+      
+      // Navigate to the page first if needed
+      if (location.pathname !== path) {
+        navigate(path);
+        // Wait for navigation then scroll
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            const yOffset = -100; // Account for fixed navbar
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }, 300);
+      } else {
+        // Already on the page, just scroll
+        const element = document.getElementById(hash);
+        if (element) {
+          const yOffset = -100; // Account for fixed navbar
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }
+    } else {
+      navigate(href);
+    }
+  };
+
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-500 ${
       scrolled 
@@ -74,6 +109,7 @@ const Navbar = () => {
               >
                 <Link
                   to={item.href}
+                  onClick={() => setDropdownOpen(null)}
                   className={`px-4 py-2.5 flex items-center space-x-1 text-sm font-medium transition-all duration-300 rounded-lg ${
                     isActive(item.href)
                       ? 'text-red-600 bg-red-50'
@@ -92,13 +128,16 @@ const Navbar = () => {
                 {item.dropdown && dropdownOpen === item.name && (
                   <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden animate-slide-down">
                     {item.dropdown.map((subItem) => (
-                      <Link
+                      <button
                         key={subItem.name}
-                        to={subItem.href}
-                        className="block px-4 py-3 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 transition-all duration-200 border-b border-gray-50 last:border-0"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleSubItemClick(subItem.href);
+                        }}
+                        className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 transition-all duration-200 border-b border-gray-50 last:border-0"
                       >
                         {subItem.name}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
@@ -147,14 +186,16 @@ const Navbar = () => {
                 {item.dropdown && (
                   <div className="ml-4 mt-1 space-y-1">
                     {item.dropdown.map((subItem) => (
-                      <Link
+                      <button
                         key={subItem.name}
-                        to={subItem.href}
-                        onClick={() => setIsOpen(false)}
-                        className="block px-4 py-2 text-sm text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleSubItemClick(subItem.href);
+                        }}
+                        className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
                       >
                         {subItem.name}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
