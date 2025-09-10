@@ -283,43 +283,37 @@ const Contact = () => {
       {/* Contact Methods Grid */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-slide-up">
-            <span className="inline-block px-4 py-2 bg-red-100 text-red-600 rounded-full text-sm font-semibold mb-6">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 bg-red-100 text-red-600 rounded-full text-sm font-semibold mb-4">
               Get In Touch
             </span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Connect With Our
               <span className="text-red-600"> Expert Team</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Choose your preferred communication channel - we're here to help 24/7 with your logistics needs
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Choose your preferred communication channel - we're here to help with your logistics needs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactMethods.map((method, index) => (
               <div 
                 key={index} 
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                className="group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="relative">
-                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-red-600 to-red-700"></div>
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-red-50 text-red-600 rounded-xl mb-4 group-hover:bg-red-100 transition-colors">
+                  {method.icon}
                 </div>
-                <div className="p-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 text-red-600 rounded-xl mb-4 group-hover:scale-110 transition-transform">
-                    {method.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{method.title}</h3>
-                  <p className="text-gray-600 mb-4">{method.description}</p>
-                  <div className="p-4 bg-gray-50 rounded-xl mb-4">
-                    <div className="font-semibold text-gray-900">{method.detail}</div>
-                    <div className="text-sm text-gray-500 mt-1">{method.timing}</div>
-                  </div>
-                  <button className="w-full py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group-hover:scale-105">
-                    {method.action}
-                    <ChevronRight className="inline-block ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{method.title}</h3>
+                <p className="text-sm text-gray-600 mb-4">{method.description}</p>
+                <div className="space-y-1 mb-4">
+                  <div className="font-medium text-gray-900 text-sm">{method.detail}</div>
+                  <div className="text-xs text-gray-500">{method.timing}</div>
                 </div>
+                <button className="w-full py-2.5 text-red-600 border border-red-600 rounded-lg font-medium hover:bg-red-600 hover:text-white transition-all duration-300 text-sm">
+                  {method.action}
+                </button>
               </div>
             ))}
           </div>
@@ -331,17 +325,17 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Form Section */}
-            <div className="animate-slide-up">
+            <div>
               <div className="mb-8">
-                <span className="inline-block px-4 py-2 bg-red-100 text-red-600 rounded-full text-sm font-semibold mb-6">
+                <span className="inline-block px-4 py-2 bg-red-100 text-red-600 rounded-full text-sm font-semibold mb-4">
                   Get Started
                 </span>
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                   Share Your
                   <span className="text-red-600"> Logistics Needs</span>
                 </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Complete the form below and our experts will provide a customized solution within 2 hours during business hours.
+                <p className="text-gray-600">
+                  Complete the form below and our experts will provide a customized solution within 2 hours.
                 </p>
               </div>
               
@@ -358,7 +352,7 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-red-100 focus:border-red-500 transition-all duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200"
                       placeholder="John Doe"
                     />
                   </div>
@@ -374,7 +368,7 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-red-100 focus:border-red-500 transition-all duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200"
                       placeholder="john@company.com"
                     />
                   </div>
@@ -391,7 +385,7 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-red-100 focus:border-red-500 transition-all duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200"
                       placeholder="+91 XXXXX XXXXX"
                     />
                   </div>
@@ -406,7 +400,7 @@ const Contact = () => {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-red-100 focus:border-red-500 transition-all duration-200"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200"
                       placeholder="Your company name"
                     />
                   </div>
@@ -469,7 +463,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-2xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-red-700 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <>
@@ -487,32 +481,32 @@ const Contact = () => {
             </div>
 
             {/* Info Cards */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               {/* Why Partner With Us */}
-              <div className="bg-white rounded-3xl shadow-xl p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Partner With Us?</h3>
+              <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Why Partner With Us?</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {whyPartner.map((item, index) => (
-                    <div key={index} className="text-center group">
-                      <div className="inline-flex items-center justify-center w-14 h-14 bg-red-100 text-red-600 rounded-xl mb-3 group-hover:scale-110 transition-transform">
-                        {item.icon}
+                    <div key={index} className="text-center">
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-red-50 text-red-600 rounded-lg mb-2">
+                        {React.cloneElement(item.icon, { className: "h-6 w-6" })}
                       </div>
-                      <h4 className="font-bold text-gray-900 mb-1">{item.title}</h4>
-                      <p className="text-sm text-gray-600">{item.description}</p>
+                      <h4 className="font-semibold text-gray-900 text-sm mb-1">{item.title}</h4>
+                      <p className="text-xs text-gray-600">{item.description}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Testimonial Card */}
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 text-white/10">
-                  <svg className="w-32 h-32" fill="currentColor" viewBox="0 0 24 24">
+              <div className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl p-6 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 text-white/5">
+                  <svg className="w-24 h-24" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                 </div>
                 <div className="relative">
-                  <h3 className="text-2xl font-bold mb-6">Client Success</h3>
+                  <h3 className="text-xl font-bold mb-4">Client Success</h3>
                   {testimonials.map((testimonial, index) => (
                     <div
                       key={index}
@@ -527,12 +521,12 @@ const Contact = () => {
                               <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                             ))}
                           </div>
-                          <p className="text-lg text-gray-200 italic mb-4 leading-relaxed">
+                          <p className="text-sm text-gray-200 italic mb-3 leading-relaxed">
                             "{testimonial.quote}"
                           </p>
                           <div>
-                            <div className="font-semibold">{testimonial.author}</div>
-                            <div className="text-sm text-gray-400">
+                            <div className="font-medium text-sm">{testimonial.author}</div>
+                            <div className="text-xs text-gray-400">
                               {testimonial.position}, {testimonial.company}
                             </div>
                           </div>
@@ -555,16 +549,16 @@ const Contact = () => {
               </div>
 
               {/* Quick Info */}
-              <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-3xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-6">Quick Information</h3>
-                <div className="space-y-4">
+              <div className="bg-red-50 border border-red-100 rounded-2xl p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Information</h3>
+                <div className="space-y-3">
                   {quickInfo.map((info, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 bg-white/10 rounded-xl backdrop-blur-sm">
+                    <div key={index} className="flex items-center justify-between p-3 bg-white rounded-lg">
                       <div className="flex items-center space-x-3">
-                        <div className="text-white">{info.icon}</div>
-                        <span className="font-medium">{info.label}</span>
+                        <div className="text-red-600">{info.icon}</div>
+                        <span className="text-sm font-medium text-gray-700">{info.label}</span>
                       </div>
-                      <span className="font-semibold">{info.value}</span>
+                      <span className="text-sm font-semibold text-gray-900">{info.value}</span>
                     </div>
                   ))}
                 </div>
@@ -582,7 +576,8 @@ const Contact = () => {
               Our Network
             </span>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Strategic Locations Across India
+              Strategic Locations
+              <span className="text-red-600"> Across India</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Multiple offices and operational hubs ensure comprehensive coverage and support
@@ -591,51 +586,51 @@ const Contact = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {officeLocations.map((office, index) => (
-              <div key={index} className="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                <div className={`h-2 bg-gradient-to-r ${
-                  office.type === 'primary' ? 'from-red-600 to-red-700' : 
-                  office.type === 'operational' ? 'from-blue-600 to-blue-700' : 
-                  'from-green-600 to-green-700'
+              <div key={index} className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                <div className={`h-1 bg-gradient-to-r ${
+                  office.type === 'primary' ? 'from-red-500 to-red-600' : 
+                  office.type === 'operational' ? 'from-blue-500 to-blue-600' : 
+                  'from-green-500 to-green-600'
                 }`}></div>
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900">{office.city}</h3>
-                      <p className="text-gray-600">{office.region}</p>
+                      <h3 className="text-xl font-bold text-gray-900">{office.city}</h3>
+                      <p className="text-sm text-gray-600">{office.region}</p>
                     </div>
-                    <div className="p-3 bg-red-100 text-red-600 rounded-xl group-hover:scale-110 transition-transform">
-                      <MapPin className="h-6 w-6" />
+                    <div className="p-2 bg-red-50 text-red-600 rounded-lg">
+                      <MapPin className="h-5 w-5" />
                     </div>
                   </div>
                   
-                  <p className="text-gray-600 mb-6">{office.description}</p>
+                  <p className="text-sm text-gray-600 mb-4">{office.description}</p>
                   
-                  <div className="space-y-3 mb-6">
+                  <div className="space-y-2 mb-4">
                     <div className="flex items-center text-gray-700">
-                      <MapPin className="h-5 w-5 text-red-600 mr-3" />
-                      <span className="text-sm">{office.address}</span>
+                      <MapPin className="h-4 w-4 text-red-500 mr-2 flex-shrink-0" />
+                      <span className="text-xs">{office.address}</span>
                     </div>
                     <div className="flex items-center text-gray-700">
-                      <Phone className="h-5 w-5 text-red-600 mr-3" />
-                      <span className="text-sm">{office.phone}</span>
+                      <Phone className="h-4 w-4 text-red-500 mr-2 flex-shrink-0" />
+                      <span className="text-xs">{office.phone}</span>
                     </div>
                     <div className="flex items-center text-gray-700">
-                      <Clock className="h-5 w-5 text-red-600 mr-3" />
-                      <span className="text-sm">{office.timing}</span>
+                      <Clock className="h-4 w-4 text-red-500 mr-2 flex-shrink-0" />
+                      <span className="text-xs">{office.timing}</span>
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {office.features.map((feature, idx) => (
-                      <span key={idx} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
+                      <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
                         {feature}
                       </span>
                     ))}
                   </div>
 
-                  <button className="w-full py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                  <button className="w-full py-2.5 text-red-600 border border-red-600 rounded-lg font-medium hover:bg-red-600 hover:text-white transition-all duration-300 text-sm">
                     Get Directions
-                    <ArrowRight className="inline-block ml-2 h-4 w-4" />
+                    <ArrowRight className="inline-block ml-2 h-3 w-3" />
                   </button>
                 </div>
               </div>
