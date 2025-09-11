@@ -192,88 +192,156 @@ const HomeV2 = () => {
         </div>
       </nav>
 
-      {/* Hero Section with Parallax Effect */}
-      <section className="relative h-screen overflow-hidden mt-20">
-        {heroSlides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-all duration-1000 ${
-              index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-            }`}
-          >
-            <div 
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${slide.image})`,
-                transform: `translateY(${scrollY * 0.5}px)`
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
-            </div>
-            
-            <div className="relative h-full flex items-center">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div className="max-w-3xl">
-                  <div className="overflow-hidden">
-                    <h1 
-                      className={`text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight ${
-                        index === currentSlide ? 'animate-slide-up' : ''
-                      }`}
-                    >
-                      {slide.title}
-                      <span className="block text-red-500 mt-2">{slide.subtitle}</span>
-                    </h1>
-                  </div>
-                  <div className="overflow-hidden">
-                    <p 
-                      className={`text-xl text-gray-200 mb-8 ${
-                        index === currentSlide ? 'animate-slide-up-delay' : ''
-                      }`}
-                    >
-                      {slide.description}
-                    </p>
-                  </div>
-                  <div 
-                    className={`flex flex-wrap gap-4 ${
-                      index === currentSlide ? 'animate-fade-in-delay' : ''
-                    }`}
-                  >
-                    <Link 
-                      to={slide.cta.link}
-                      className="group inline-flex items-center px-8 py-4 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition-all duration-300"
-                    >
-                      {slide.cta.text}
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                    <button className="inline-flex items-center px-8 py-4 bg-white/20 backdrop-blur-md text-white border border-white/30 rounded-full font-semibold hover:bg-white/30 transition-all duration-300">
-                      <Play className="mr-2 h-5 w-5" />
-                      Watch Story
-                    </button>
-                  </div>
+      {/* Hero Section - Split Layout */}
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-red-50">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-0 w-96 h-96 bg-red-100/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-100/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content Section */}
+            <div className="order-2 lg:order-1">
+              <div className="mb-6">
+                <span className="inline-block px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-semibold mb-4">
+                  Leading Logistics Solutions
+                </span>
+                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                  {heroSlides[currentSlide].title}
+                  <span className="text-red-600 block mt-2">
+                    {heroSlides[currentSlide].subtitle}
+                  </span>
+                </h1>
+                <p className="text-xl text-gray-600 mb-8">
+                  {heroSlides[currentSlide].description}
+                </p>
+              </div>
+
+              {/* Stats Row */}
+              <div className="grid grid-cols-3 gap-6 mb-8">
+                <div className="text-center lg:text-left">
+                  <div className="text-3xl font-bold text-gray-900">1,050+</div>
+                  <div className="text-sm text-gray-600">Fleet Size</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-3xl font-bold text-gray-900">25+ MMT</div>
+                  <div className="text-sm text-gray-600">Annual Capacity</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-3xl font-bold text-gray-900">15+ Years</div>
+                  <div className="text-sm text-gray-600">Experience</div>
                 </div>
               </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap gap-4">
+                <Link 
+                  to={heroSlides[currentSlide].cta.link}
+                  className="group inline-flex items-center px-8 py-4 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  {heroSlides[currentSlide].cta.text}
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <button className="inline-flex items-center px-8 py-4 bg-white text-red-600 border-2 border-red-600 rounded-full font-semibold hover:bg-red-50 transition-all duration-300">
+                  <Play className="mr-2 h-5 w-5" />
+                  Watch Story
+                </button>
+              </div>
+
+              {/* Slide Navigation */}
+              <div className="flex items-center space-x-4 mt-8">
+                <button
+                  onClick={() => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
+                  className="p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all"
+                >
+                  <ChevronDown className="h-5 w-5 text-gray-600 rotate-90" />
+                </button>
+                <div className="flex space-x-2">
+                  {heroSlides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`transition-all duration-300 ${
+                        index === currentSlide 
+                          ? 'w-8 h-2 bg-red-600 rounded-full' 
+                          : 'w-2 h-2 bg-gray-300 rounded-full hover:bg-gray-400'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <button
+                  onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
+                  className="p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all"
+                >
+                  <ChevronDown className="h-5 w-5 text-gray-600 -rotate-90" />
+                </button>
+              </div>
+            </div>
+
+            {/* Image Section with Slider */}
+            <div className="order-1 lg:order-2 relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                {/* Main Image */}
+                <div className="relative h-[400px] lg:h-[600px]">
+                  {heroSlides.map((slide, index) => (
+                    <div
+                      key={index}
+                      className={`absolute inset-0 transition-all duration-700 ${
+                        index === currentSlide 
+                          ? 'opacity-100 scale-100' 
+                          : 'opacity-0 scale-105'
+                      }`}
+                    >
+                      <img 
+                        src={slide.image} 
+                        alt={slide.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Overlay Info Cards */}
+                <div className="absolute bottom-6 left-6 right-6 grid grid-cols-2 gap-4">
+                  <div className="bg-white/90 backdrop-blur-md rounded-lg p-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-red-100 rounded-lg">
+                        <Truck className="h-5 w-5 text-red-600" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-medium text-gray-900">Active Fleet</div>
+                        <div className="text-xs text-gray-600">Real-time Tracking</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white/90 backdrop-blur-md rounded-lg p-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-green-100 rounded-lg">
+                        <Leaf className="h-5 w-5 text-green-600" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-medium text-gray-900">Eco-Friendly</div>
+                        <div className="text-xs text-gray-600">Green Logistics</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Slide Counter */}
+                <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md rounded-full px-4 py-2">
+                  <span className="text-sm font-medium text-gray-900">
+                    {String(currentSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
+                  </span>
+                </div>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute -z-10 -top-4 -right-4 w-72 h-72 bg-red-100 rounded-full opacity-20 blur-2xl"></div>
+              <div className="absolute -z-10 -bottom-4 -left-4 w-72 h-72 bg-orange-100 rounded-full opacity-20 blur-2xl"></div>
             </div>
           </div>
-        ))}
-        
-        {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
-          {heroSlides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`transition-all duration-300 ${
-                index === currentSlide 
-                  ? 'w-12 h-2 bg-red-600 rounded-full' 
-                  : 'w-2 h-2 bg-white/50 rounded-full hover:bg-white/80'
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 right-8 text-white animate-bounce">
-          <ChevronDown className="h-8 w-8" />
         </div>
       </section>
 
