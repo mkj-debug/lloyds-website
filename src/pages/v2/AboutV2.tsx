@@ -154,13 +154,11 @@ const AboutV2 = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center">
-                <Truck className="h-7 w-7 text-white" />
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-gray-900">Lloyds Surya</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider">Private Limited</div>
-              </div>
+              <img
+                src="/20221207ThriveniIDFinalHor_SP-01.png"
+                alt="Thriveni Earth Movers Pvt Ltd"
+                className="h-12 w-auto object-contain"
+              />
             </div>
             
             <div className="hidden lg:flex items-center space-x-8">

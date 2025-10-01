@@ -166,13 +166,11 @@ const HomeV2 = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center">
-                <Truck className="h-7 w-7 text-white" />
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-gray-900">Lloyds Surya</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider">Private Limited</div>
-              </div>
+              <img
+                src="/20221207ThriveniIDFinalHor_SP-01.png"
+                alt="Thriveni Earth Movers Pvt Ltd"
+                className="h-12 w-auto object-contain"
+              />
             </div>
             
             <div className="hidden lg:flex items-center space-x-8">
@@ -581,10 +579,11 @@ const HomeV2 = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center">
-                  <Truck className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-xl font-bold text-gray-900">Lloyds Surya</div>
+                <img
+                  src="/thriveni_earth_movers_pvt_ltd_logo.jpg"
+                  alt="Thriveni Earth Movers Pvt Ltd"
+                  className="h-10 w-auto object-contain"
+                />
               </div>
               <p className="text-sm mb-4">
                 Leading logistics solutions provider transforming India's industrial landscape through innovation and sustainability.
