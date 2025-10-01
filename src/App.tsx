@@ -18,40 +18,40 @@ import NewsArticle from './pages/v2/NewsArticle';
 
 function AppContent() {
   const location = useLocation();
-  const isV2 = location.pathname.startsWith('/v2');
+  const isV1 = location.pathname.startsWith('/v1');
 
-  // V2 routes don't use the default navbar and footer
-  if (isV2) {
+  // Old V1 routes with navbar and footer (moved to /v1 prefix)
+  if (isV1) {
     return (
       <div className="min-h-screen bg-white scroll-smooth">
-        <Routes>
-          <Route path="/v2" element={<HomeV2 />} />
-          <Route path="/v2/about" element={<AboutV2 />} />
-          <Route path="/v2/services" element={<ServicesV2 />} />
-          <Route path="/v2/careers" element={<CareersV2 />} />
-          <Route path="/v2/contact" element={<ContactV2 />} />
-          <Route path="/v2/news" element={<NewsV2 />} />
-          <Route path="/v2/news/:id" element={<NewsArticle />} />
-        </Routes>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/v1" element={<Home />} />
+            <Route path="/v1/about" element={<About />} />
+            <Route path="/v1/services" element={<Services />} />
+            <Route path="/v1/careers" element={<Careers />} />
+            <Route path="/v1/partners" element={<Partners />} />
+            <Route path="/v1/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
     );
   }
 
-  // Original routes with navbar and footer
+  // V2 routes are now the default (no prefix needed)
   return (
     <div className="min-h-screen bg-white scroll-smooth">
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/partners" element={<Partners />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomeV2 />} />
+        <Route path="/about" element={<AboutV2 />} />
+        <Route path="/services" element={<ServicesV2 />} />
+        <Route path="/careers" element={<CareersV2 />} />
+        <Route path="/contact" element={<ContactV2 />} />
+        <Route path="/news" element={<NewsV2 />} />
+        <Route path="/news/:id" element={<NewsArticle />} />
+      </Routes>
     </div>
   );
 }

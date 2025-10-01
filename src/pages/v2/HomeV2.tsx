@@ -174,11 +174,11 @@ const HomeV2 = () => {
             </div>
             
             <div className="hidden lg:flex items-center space-x-8">
-              <Link to="/v2" className="text-red-600 font-medium">Home</Link>
-              <Link to="/v2/about" className="text-gray-700 hover:text-red-600 font-medium transition-colors">About</Link>
-              <Link to="/v2/services" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Services</Link>
-              <Link to="/v2/careers" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Careers</Link>
-              <Link to="/v2/contact" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</Link>
+              <Link to="/" className="text-red-600 font-medium">Home</Link>
+              <Link to="/about" className="text-gray-700 hover:text-red-600 font-medium transition-colors">About</Link>
+              <Link to="/services" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Services</Link>
+              <Link to="/careers" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Careers</Link>
+              <Link to="/contact" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</Link>
               <Link 
                 to="/contact" 
                 className="px-6 py-2.5 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 transition-all duration-300"
@@ -495,8 +495,8 @@ const HomeV2 = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-2">Latest Updates</h2>
               <p className="text-gray-600">Stay informed about our latest developments</p>
             </div>
-            <Link 
-              to="/v2/news"
+            <Link
+              to="/news"
               className="hidden lg:inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors"
             >
               View All News
@@ -506,9 +506,9 @@ const HomeV2 = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {newsUpdates.map((news, index) => (
-              <Link 
+              <Link
                 key={index}
-                to={`/v2/news/${news.id}`}
+                to={`/news/${news.id}`}
                 className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 block"
               >
                 <div className="aspect-w-16 aspect-h-10 relative h-48 overflow-hidden">
@@ -580,7 +580,7 @@ const HomeV2 = () => {
             <div>
               <div className="flex items-center space-x-3 mb-6">
                 <img
-                  src="/thriveni_earth_movers_pvt_ltd_logo.jpg"
+                  src="/20221207ThriveniIDFinalHor_SP-01.png"
                   alt="Thriveni Earth Movers Pvt Ltd"
                   className="h-10 w-auto object-contain"
                 />
@@ -638,7 +638,7 @@ const HomeV2 = () => {
           </div>
           
           <div className="border-t border-gray-300 mt-12 pt-8 text-center text-sm">
-            <p className="text-gray-600">&copy; 2024 Lloyds Surya Private Limited. All rights reserved.</p>
+            <p className="text-gray-600">&copy; 2025 Lloyds Surya Private Limited. All rights reserved.</p>
           </div>
         </div>
       </footer>

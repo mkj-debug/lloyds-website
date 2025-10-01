@@ -174,11 +174,11 @@ const ServicesV2 = () => {
             </div>
             
             <div className="hidden lg:flex items-center space-x-8">
-              <Link to="/v2" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Home</Link>
-              <Link to="/v2/about" className="text-gray-700 hover:text-red-600 font-medium transition-colors">About</Link>
-              <Link to="/v2/services" className="text-red-600 font-medium">Services</Link>
-              <Link to="/v2/careers" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Careers</Link>
-              <Link to="/v2/contact" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</Link>
+              <Link to="/" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Home</Link>
+              <Link to="/about" className="text-gray-700 hover:text-red-600 font-medium transition-colors">About</Link>
+              <Link to="/services" className="text-red-600 font-medium">Services</Link>
+              <Link to="/careers" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Careers</Link>
+              <Link to="/contact" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</Link>
               <Link 
                 to="/contact" 
                 className="px-6 py-2.5 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 transition-all duration-300"
@@ -422,8 +422,8 @@ const ServicesV2 = () => {
                 </div>
               </div>
               
-              <Link 
-                to="/v2/technology"
+              <Link
+                to="/technology"
                 className="inline-flex items-center px-8 py-4 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition-all duration-300"
               >
                 Explore Our Tech
@@ -518,15 +518,15 @@ const ServicesV2 = () => {
             Let's discuss how our comprehensive services can transform your supply chain operations.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link 
-              to="/v2/contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Get Custom Quote
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
-            <Link 
-              to="/v2/case-studies"
+            <Link
+              to="/case-studies"
               className="inline-flex items-center px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300"
             >
               View Case Studies
@@ -562,10 +562,10 @@ const ServicesV2 = () => {
             <div>
               <h4 className="text-gray-900 font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/v2" className="hover:text-red-600 transition-colors">Home</Link></li>
-                <li><Link to="/v2/about" className="hover:text-red-600 transition-colors">About</Link></li>
-                <li><Link to="/v2/services" className="hover:text-red-600 transition-colors">Services</Link></li>
-                <li><Link to="/v2/contact" className="hover:text-red-600 transition-colors">Contact</Link></li>
+                <li><Link to="/" className="hover:text-red-600 transition-colors">Home</Link></li>
+                <li><Link to="/about" className="hover:text-red-600 transition-colors">About</Link></li>
+                <li><Link to="/services" className="hover:text-red-600 transition-colors">Services</Link></li>
+                <li><Link to="/contact" className="hover:text-red-600 transition-colors">Contact</Link></li>
               </ul>
             </div>
             
@@ -599,7 +599,7 @@ const ServicesV2 = () => {
           </div>
           
           <div className="border-t border-gray-300 mt-12 pt-8 text-center text-sm">
-            <p className="text-gray-600">&copy; 2024 Lloyds Surya Private Limited. All rights reserved.</p>
+            <p className="text-gray-600">&copy; 2025 Lloyds Surya Private Limited. All rights reserved.</p>
           </div>
         </div>
       </footer>

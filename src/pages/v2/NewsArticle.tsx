@@ -216,7 +216,7 @@ const NewsArticle = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Article not found</h2>
-          <Link to="/v2/news" className="text-green-600 hover:text-green-700">
+          <Link to="/news" className="text-green-600 hover:text-green-700">
             Back to News
           </Link>
         </div>
@@ -261,11 +261,11 @@ const NewsArticle = () => {
             </div>
             
             <div className="hidden lg:flex items-center space-x-8">
-              <Link to="/v2" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Home</Link>
-              <Link to="/v2/about" className="text-gray-700 hover:text-red-600 font-medium transition-colors">About</Link>
-              <Link to="/v2/services" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Services</Link>
-              <Link to="/v2/careers" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Careers</Link>
-              <Link to="/v2/contact" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</Link>
+              <Link to="/" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Home</Link>
+              <Link to="/about" className="text-gray-700 hover:text-red-600 font-medium transition-colors">About</Link>
+              <Link to="/services" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Services</Link>
+              <Link to="/careers" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Careers</Link>
+              <Link to="/contact" className="text-gray-700 hover:text-red-600 font-medium transition-colors">Contact</Link>
               <Link 
                 to="/contact" 
                 className="px-6 py-2.5 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 transition-all duration-300"
@@ -281,9 +281,9 @@ const NewsArticle = () => {
       <div className="pt-24 pb-4 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-2 text-sm text-gray-600">
-            <Link to="/v2" className="hover:text-gray-900">Home</Link>
+            <Link to="/" className="hover:text-gray-900">Home</Link>
             <ChevronRight className="h-4 w-4" />
-            <Link to="/v2/news" className="hover:text-gray-900">News</Link>
+            <Link to="/news" className="hover:text-gray-900">News</Link>
             <ChevronRight className="h-4 w-4" />
             <span className="text-gray-900 font-medium">{currentArticle.category}</span>
           </div>
@@ -420,7 +420,7 @@ const NewsArticle = () => {
                 return (
                   <Link
                     key={articleId}
-                    to={`/v2/news/${articleId}`}
+                    to={`/news/${articleId}`}
                     className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all"
                   >
                     <div className="flex">
@@ -451,7 +451,7 @@ const NewsArticle = () => {
       <section className="py-8 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link 
-            to="/v2/news"
+            to="/news"
             className="inline-flex items-center text-green-600 hover:text-green-700 font-medium"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
@@ -487,10 +487,10 @@ const NewsArticle = () => {
             <div>
               <h4 className="text-gray-900 font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/v2" className="hover:text-red-600 transition-colors">Home</Link></li>
-                <li><Link to="/v2/about" className="hover:text-red-600 transition-colors">About</Link></li>
-                <li><Link to="/v2/services" className="hover:text-red-600 transition-colors">Services</Link></li>
-                <li><Link to="/v2/contact" className="hover:text-red-600 transition-colors">Contact</Link></li>
+                <li><Link to="/" className="hover:text-red-600 transition-colors">Home</Link></li>
+                <li><Link to="/about" className="hover:text-red-600 transition-colors">About</Link></li>
+                <li><Link to="/services" className="hover:text-red-600 transition-colors">Services</Link></li>
+                <li><Link to="/contact" className="hover:text-red-600 transition-colors">Contact</Link></li>
               </ul>
             </div>
             
@@ -524,7 +524,7 @@ const NewsArticle = () => {
           </div>
           
           <div className="border-t border-gray-300 mt-12 pt-8 text-center text-sm">
-            <p className="text-gray-600">&copy; 2024 Lloyds Surya Private Limited. All rights reserved.</p>
+            <p className="text-gray-600">&copy; 2025 Lloyds Surya Private Limited. All rights reserved.</p>
           </div>
         </div>
       </footer>
